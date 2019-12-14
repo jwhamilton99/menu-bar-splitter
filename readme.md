@@ -2,6 +2,8 @@
 
 A simple macOS app to help keep your menu bar organized.
 
+(Apparently it requires Catalina and I didn't realize. Sorry about that.)
+
 ![Screenshot 1](/img/sc1.png)
 
 ![Screenshot 2](/img/sc2.png)
