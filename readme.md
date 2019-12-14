@@ -8,8 +8,6 @@ A simple macOS app to help keep your menu bar organized by adding dividers that 
 
 ![Screenshot 2](/img/sc2.png)
 
-![Screenshot 3](/img/sc3.png)
-
 ![Screenshot 4](/img/sc4.png)
 
 Download the app [here](https://github.com/jwhamilton99/menu-bar-splitter/releases).
