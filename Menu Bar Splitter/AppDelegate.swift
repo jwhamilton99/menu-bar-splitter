@@ -64,6 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func addItem() {
         itemArray.append(SplitterItem(index: itemArray.count))
+        self.savePrefs()
     }
     
     @objc func removeItem(sender: Any) {
@@ -101,7 +102,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    @objc func quitSelected() {
+    func savePrefs() {
         UserDefaults.standard.set(itemArray.count, forKey: "numItems")
         var icoStr = ""
         itemArray.forEach({(i) in
@@ -125,6 +126,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             icoStr = "\(icoStr)\(iconInd)"
         })
         UserDefaults.standard.set(icoStr, forKey: "iconStr")
+    }
+    
+    @objc func quitSelected() {
+        self.savePrefs()
         NSApplication.shared.terminate(self)
     }
     

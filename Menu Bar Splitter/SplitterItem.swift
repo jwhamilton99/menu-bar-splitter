@@ -13,6 +13,7 @@ class SplitterItem: NSStatusItem {
     
     var statusItem: NSStatusItem!
     var statusIndex: Int!
+    let appDelegate = NSApplication.shared.delegate as! AppDelegate
     
     func makeIconMenu()->NSMenu {
         let iconMenu = NSMenu()
@@ -61,18 +62,22 @@ class SplitterItem: NSStatusItem {
     
     @objc func setBlankIcon() {
         statusItem.button?.image = NSImage(named: "blankIcon")
+        appDelegate.savePrefs()
     }
     
     @objc func setLineIcon() {
         statusItem.button?.image = NSImage(named: "lineIcon")
+        appDelegate.savePrefs()
     }
     
     @objc func setThinBlankIcon() {
         statusItem.button?.image = NSImage(named: "thinBlankIcon")
+        appDelegate.savePrefs()
     }
     
     @objc func setDotIcon() {
         statusItem.button?.image = NSImage(named: "dotIcon")
+        appDelegate.savePrefs()
     }
     
     @objc func openAtLogin() {
