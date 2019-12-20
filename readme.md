@@ -6,8 +6,6 @@ A simple macOS app to help keep your menu bar organized by adding dividers that 
 
 Made with love by [Justin Hamilton](https://www.jwhamilton.co).
 
-(Apparently it requires Catalina and I didn't realize. Sorry about that.)
-
 ![Screenshot 1](/img/sc1.png)
 
 ![Screenshot 2](/img/sc2.png)
