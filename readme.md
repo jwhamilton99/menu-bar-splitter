@@ -2,6 +2,8 @@
 
 *"Gilt es auszuprobieren (It is important to try it out)" - [ifun.de](https://www.ifun.de/menu-bar-splitter-sorgt-fuer-mehr-uebersicht-in-der-menueleiste-147440/)*
 
+*Featured on [Softpedia](https://mac.softpedia.com/get/Utilities/Menu-Bar-Splitter.shtml), [ifun.de](https://www.ifun.de/menu-bar-splitter-sorgt-fuer-mehr-uebersicht-in-der-menueleiste-147440/), and [AddictiveTips](https://www.addictivetips.com/mac-os/add-dividers-to-the-menu-bar-on-macos/)*
+
 A simple macOS app to help keep your menu bar organized by adding dividers that you can move between icons. You can add as many dividers as you need, rearrange them as you please (CMD+Click+Drag), and choose between 4 different icons for each divider.
 
 Made with love by [Justin Hamilton](https://www.jwhamilton.co).
