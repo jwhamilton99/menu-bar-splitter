@@ -2,7 +2,7 @@
 
 *"Gilt es auszuprobieren (It is important to try it out)" - [ifun.de](https://www.ifun.de/menu-bar-splitter-sorgt-fuer-mehr-uebersicht-in-der-menueleiste-147440/)*
 
-*"It's easy to recommend if you're looking for a no-nonsense way to organize your icons" - [AppsForMyPC](https://www.appsformypc.com/2020/01/menu-bar-splitter-for-mac/)*
+*"It's easy to recommend if you're looking for a no-nonsense way to organize your icons" - [Softpedia](https://mac.softpedia.com/get/Utilities/Menu-Bar-Splitter.shtml)*
 
 *Featured on [Softpedia](https://mac.softpedia.com/get/Utilities/Menu-Bar-Splitter.shtml), [ifun.de](https://www.ifun.de/menu-bar-splitter-sorgt-fuer-mehr-uebersicht-in-der-menueleiste-147440/), [AppsForMyPC](https://www.appsformypc.com/2020/01/menu-bar-splitter-for-mac/), and [AddictiveTips](https://www.addictivetips.com/mac-os/add-dividers-to-the-menu-bar-on-macos/).*
 
