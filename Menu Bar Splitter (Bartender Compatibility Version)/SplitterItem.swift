@@ -17,7 +17,7 @@ class SplitterItem: NSStatusItem {
     
     func makeIconMenu()->NSMenu {
         let iconMenu = NSMenu()
-    
+        
         let blankMenu = NSMenu()
         let thickBlankItem = NSMenuItem(title: "Thick", action: #selector(self.setBlankIcon), keyEquivalent: "")
         let thinBlankItem = NSMenuItem(title: "Thin", action: #selector(self.setThinBlankIcon), keyEquivalent: "")
@@ -33,6 +33,22 @@ class SplitterItem: NSStatusItem {
         
         lineItem.target = self
         dotItem.target = self
+        switch(statusItem.button?.image?.name()) {
+        case "lineIcon":
+            lineItem.state = .on
+            break
+        case "dotIcon":
+            dotItem.state = .on
+            break
+        case "blankIcon":
+            thickBlankItem.state = .on
+            break
+        case "thinBlankIcon":
+            thinBlankItem.state = .on
+            break
+        default:
+            break
+        }
         
         iconMenu.addItem(blankItem); iconMenu.addItem(lineItem); iconMenu.addItem(dotItem)
         
@@ -43,21 +59,26 @@ class SplitterItem: NSStatusItem {
         let mainMenu = NSMenu()
         
         let addItem = NSMenuItem(title: "Add Splitter", action: #selector(AppDelegate.addItem), keyEquivalent: "")
-        let removeItem = NSMenuItem(title: "Remove Splitter", action: #selector(AppDelegate.removeItem(sender:)), keyEquivalent: "")
+        let removeItem = NSMenuItem(title: "Remove Splitter", action: #selector(self.removeItem), keyEquivalent: "")
         let iconItem = NSMenuItem(title: "Set Icon...", action: nil, keyEquivalent: "")
         iconItem.submenu = makeIconMenu()
+        let quitItem = NSMenuItem(title: "Quit BCV", action: #selector(self.quitSelected), keyEquivalent: "")
         
-        let openAtLoginItem = NSMenuItem(title: "Open At Login", action: #selector(self.openAtLogin), keyEquivalent: "")
-        let aboutItem = NSMenuItem(title: "About", action: #selector(AppDelegate.showAbout), keyEquivalent: "")
-        let quitItem = NSMenuItem(title: "Quit", action: #selector(AppDelegate.quitSelected), keyEquivalent: "")
-        
-        openAtLoginItem.target = self
+        removeItem.target = self
         
         mainMenu.addItem(addItem); mainMenu.addItem(removeItem); mainMenu.addItem(iconItem)
         mainMenu.addItem(NSMenuItem.separator())
-        mainMenu.addItem(openAtLoginItem);mainMenu.addItem(aboutItem); mainMenu.addItem(quitItem)
+        mainMenu.addItem(quitItem)
         
         return mainMenu
+    }
+    
+    @objc func removeItem() {
+        appDelegate.removeItem(index: self.statusIndex)
+    }
+    
+    @objc func quitSelected() {
+        appDelegate.quitSelected()
     }
     
     @objc func setBlankIcon() {
@@ -80,13 +101,8 @@ class SplitterItem: NSStatusItem {
         appDelegate.savePrefs()
     }
     
-    @objc func openAtLogin() {
-        let alert = NSAlert()
-        alert.alertStyle = .informational
-        alert.icon = NSImage(named: "AppIcon")
-        alert.informativeText = "To open at login, go to:\n\nSystem Preferences > Users & Groups > Your Name > Login Items\n\nPress + and add Menu Bar Splitter (Bartender Compatibility Version)."
-        alert.messageText = "Open At Login"
-        alert.runModal()
+    func refreshMenu() {
+        statusItem.menu = makeMainMenu()
     }
     
     init(index: Int) {

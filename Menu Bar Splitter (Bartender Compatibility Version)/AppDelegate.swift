@@ -11,9 +11,8 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var window: NSWindow!
     var itemArray: [SplitterItem] = []
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         if(UserDefaults.standard.integer(forKey:"numItemsBCV") == 0) {
@@ -41,6 +40,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+        
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(self.receivedQuitRequest(notification:)), name: NSNotification.Name(rawValue: "justinhamilton.Menu-Bar-Splitter.quitBCVNotification"), object: nil)
+        refreshAllItems()
+    }
+    
+    @objc func receivedQuitRequest(notification: Notification) {
+        self.quitSelected()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -58,8 +64,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return idx
     }
     
-    @objc func showAbout() {
-        window.makeKeyAndOrderFront(NSWorkspace.shared)
+    func refreshAllItems() {
+        itemArray.forEach({(i) in
+            i.refreshMenu()
+        })
     }
     
     @objc func addItem() {
@@ -67,14 +75,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.savePrefs()
     }
     
-    @objc func removeItem(sender: Any) {
+    @objc func removeItem(index: Int) {
         if(itemArray.count == 1) {
             itemArray.removeFirst()
             let alert = NSAlert()
             alert.alertStyle = .warning
             alert.icon = NSImage(named: "AppIcon")
-            alert.messageText = "No More Splitters"
-            alert.informativeText = "You've removed the last splitter. Would you like to add a new splitter or close the application?"
+            alert.messageText = "No More Dividers"
+            alert.informativeText = "You've removed the last divider. Would you like to add a new divider or close the application?"
             alert.addButton(withTitle: "Add Splitter")
             alert.addButton(withTitle: "Quit")
             let res = alert.runModal()
@@ -91,15 +99,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 break
             }
         } else {
-            if(getIndex(sender: sender) == itemArray.count-1) {
+            if(index == itemArray.count-1) {
                 itemArray.removeLast()
+            } else if(index == 0) {
+                itemArray.removeFirst()
             } else {
-                (getIndex(sender: sender)+1...itemArray.count-1).forEach({(i) in
-                    itemArray[i].statusIndex-=1
-                })
-                itemArray.remove(at: getIndex(sender: sender))
+                itemArray.remove(at: index)
             }
         }
+        
+        var newIndex = 0
+        itemArray.forEach({(i) in
+            i.statusIndex = newIndex
+            newIndex+=1
+        })
     }
     
     func savePrefs() {
@@ -125,16 +138,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             icoStr = "\(icoStr)\(iconInd)"
         })
+        
         UserDefaults.standard.set(icoStr, forKey: "iconStrBCV")
+        refreshAllItems()
     }
     
     @objc func quitSelected() {
         self.savePrefs()
         NSApplication.shared.terminate(self)
-    }
-    
-    @IBAction func openWebsite(_ sender: Any) {
-        NSWorkspace.shared.open(URL(string: "https://www.jwhamilton.co")!)
     }
 }
 

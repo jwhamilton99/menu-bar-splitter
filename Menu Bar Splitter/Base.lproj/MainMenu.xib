@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -685,13 +685,13 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="250" height="200"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" misplaced="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BHs-tJ-pc7">
-                        <rect key="frame" x="10" y="116" width="230" height="50"/>
+                        <rect key="frame" x="10" y="112" width="230" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="1Qm-lq-YvP"/>
                             <constraint firstAttribute="width" constant="230" id="4am-Mk-y2K"/>
@@ -699,7 +699,7 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="aboutIcon" id="6Qg-bt-ffa"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vt7-cs-Uw3">
-                        <rect key="frame" x="8" y="90" width="234" height="16"/>
+                        <rect key="frame" x="8" y="86" width="234" height="16"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Menu Bar Splitter" id="5qy-VV-fnP">
                             <font key="font" metaFont="systemSemibold" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -707,7 +707,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tih-le-uch">
-                        <rect key="frame" x="8" y="69" width="234" height="16"/>
+                        <rect key="frame" x="8" y="65" width="234" height="16"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="By Justin Hamilton" id="27d-3g-yJd">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -715,7 +715,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sQI-zK-9fG">
-                        <rect key="frame" x="8" y="33" width="234" height="16"/>
+                        <rect key="frame" x="8" y="29" width="234" height="16"/>
                         <gestureRecognizers>
                             <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="Pht-Ch-VRN">
                                 <connections>
@@ -730,8 +730,8 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n2i-BQ-NFL">
-                        <rect key="frame" x="8" y="14" width="234" height="14"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="v1.0.1" id="lWv-c5-dYa">
+                        <rect key="frame" x="8" y="10" width="234" height="14"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="v1.1" id="lWv-c5-dYa">
                             <font key="font" metaFont="label" size="11"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

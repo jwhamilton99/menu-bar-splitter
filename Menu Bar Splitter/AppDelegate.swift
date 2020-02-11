@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -41,10 +42,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+        
+        refreshAllItems()
+        
+        if(UserDefaults.standard.bool(forKey: "bcvEnabled")) {
+            launchBCV()
+        }
+    }
+    
+    func checkIfBCVRunning() -> Bool {
+        let bcvRunning = !(NSWorkspace.shared.runningApplications).filter { $0.bundleIdentifier == "justinhamilton.Menu-Bar-Splitter-BCV"}.isEmpty
+        
+        return bcvRunning
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        if(UserDefaults.standard.bool(forKey: "bcvEnabled")) {
+            if(checkIfBCVRunning()) {
+                self.closeBCV()
+            }
+        }
     }
 
     @objc func getIndex(sender: Any)->Int {
@@ -67,7 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.savePrefs()
     }
     
-    @objc func removeItem(sender: Any) {
+    @objc func removeItem(index: Int) {
         if(itemArray.count == 1) {
             itemArray.removeFirst()
             let alert = NSAlert()
@@ -91,15 +109,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 break
             }
         } else {
-            if(getIndex(sender: sender) == itemArray.count-1) {
+            if(index == itemArray.count-1) {
                 itemArray.removeLast()
+            } else if(index == 0) {
+                itemArray.removeFirst()
             } else {
-                (getIndex(sender: sender)+1...itemArray.count-1).forEach({(i) in
-                    itemArray[i].statusIndex-=1
-                })
-                itemArray.remove(at: getIndex(sender: sender))
+                itemArray.remove(at: index)
             }
         }
+        
+        var newIndex = 0
+        itemArray.forEach({(i) in
+            i.statusIndex = newIndex
+            newIndex+=1
+        })
     }
     
     func savePrefs() {
@@ -126,11 +149,64 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             icoStr = "\(icoStr)\(iconInd)"
         })
         UserDefaults.standard.set(icoStr, forKey: "iconStr")
+        refreshAllItems()
     }
     
     @objc func quitSelected() {
         self.savePrefs()
+        if(UserDefaults.standard.bool(forKey: "bcvEnabled")) {
+            self.closeBCV()
+        }
         NSApplication.shared.terminate(self)
+    }
+    
+    @objc func openAtLogin() {
+        if(UserDefaults.standard.bool(forKey: "launchAtLogin")) {
+            UserDefaults.standard.set(false, forKey: "launchAtLogin")
+            if(!SMLoginItemSetEnabled("justinhamilton.Menu-Bar-Splitter-AutoLaunch" as CFString, false)) {
+                print("Could not set login item")
+            }
+        } else {
+            UserDefaults.standard.set(true, forKey: "launchAtLogin")
+            if(!SMLoginItemSetEnabled("justinhamilton.Menu-Bar-Splitter-AutoLaunch" as CFString, true)) {
+                print("Could not set login item")
+            }
+        }
+        
+        itemArray.forEach({(i) in
+            i.refreshMenu()
+        })
+    }
+    
+    func refreshAllItems() {
+        itemArray.forEach({(i) in
+            i.refreshMenu()
+        })
+    }
+    
+    func closeBCV() {
+        DistributedNotificationCenter.default().post(name: NSNotification.Name("justinhamilton.Menu-Bar-Splitter.quitBCVNotification"), object: nil)
+    }
+    
+    func launchBCV() {
+        let bcvURL = (Bundle.main.bundleURL.appendingPathComponent("Contents", isDirectory: true).appendingPathComponent("Library", isDirectory: true).appendingPathComponent("BCV", isDirectory: true).appendingPathComponent("Menu Bar Splitter (Bartender Compatibility Version).app", isDirectory: false))
+        do {
+            try NSWorkspace.shared.launchApplication(at: bcvURL, options: .default, configuration: [:])
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    @objc func toggleBCV() {
+        if(UserDefaults.standard.bool(forKey: "bcvEnabled")) {
+            UserDefaults.standard.set(false, forKey: "bcvEnabled")
+            closeBCV()
+        } else {
+            UserDefaults.standard.set(true, forKey: "bcvEnabled")
+            launchBCV()
+        }
+        
+        refreshAllItems()
     }
     
     @IBAction func openWebsite(_ sender: Any) {

@@ -16,6 +16,18 @@ Made with love by [Justin Hamilton](https://www.jwhamilton.co).
 
 ![Screenshot 4](/img/sc4.png)
 
-Download the app [here](https://github.com/jwhamilton99/menu-bar-splitter/releases).
+**Note**: Version v1.1 will be released on the Mac App Store soon. The latest release hosted here, v1.0.1, is an old version and is different from the source code. I'll update the readme with a Mac App Store link when it's available.
 
-**Note for Bartender users**: If you want to have dividers in both levels of menu bar, there's a Bartender compatibility version of MBS. I couldn't figure out how to make it work with one app, so just run both versions and set one to be hidden. Sorry this is so convoluted.
+## v1.1 Changelog
+
+New:
+
+* Bundled the main app and BCV into a single app
+* Added a helper app to launch at login (if enabled)
+* Added "Open At Login" and "Bartender Compatibility" menu options
+* Added a checkmark next to the currently selected icon in the menu
+
+Changed:
+
+* Removed "Open At Login" dialog, since adding the app to the Login Items is no longer required
+* Refined removing splitters
