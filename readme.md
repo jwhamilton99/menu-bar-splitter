@@ -14,6 +14,8 @@ Made with love by [Justin Hamilton](https://www.jwhamilton.co).
 
 ![Screenshot 2](/img/sc2.png)
 
+![Screenshot 3](/img/sc3.png)
+
 ![Screenshot 4](/img/sc4.png)
 
 **Note**: Version v1.1 will be released on the Mac App Store soon. The latest release hosted here, v1.0.1, is an old version and is different from the source code. I'll update the readme with a Mac App Store link when it's available.
