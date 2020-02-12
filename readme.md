@@ -28,6 +28,8 @@ New:
 * Added a helper app to launch at login (if enabled)
 * Added "Open At Login" and "Bartender Compatibility" menu options
 * Added a checkmark next to the currently selected icon in the menu
+* Added link to source code in About window
+* Added a dialog explaining BCV when enabling
 
 Changed:
 
