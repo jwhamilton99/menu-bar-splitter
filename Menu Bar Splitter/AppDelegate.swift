@@ -204,23 +204,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             UserDefaults.standard.set(true, forKey: "bcvEnabled")
             launchBCV()
-            let bcvAlert = NSAlert()
-            bcvAlert.messageText = "Bartender Compatibility Mode"
-            bcvAlert.informativeText = "You've just enabled Bartender Compatibility Mode.\n\nThis lets you use Menu Bar Splitter with Bartender, an amazing menu bar organization app.\n\nWould you like to learn how to use Bartender Compatibility Mode?"
-            bcvAlert.showsSuppressionButton = true
-            bcvAlert.addButton(withTitle: "Yes")
-            bcvAlert.addButton(withTitle: "No")
-            let res = bcvAlert.runModal()
-            switch(res.rawValue) {
-            case 1000:
-                print("yes")
-                break
-            case 1001:
-                //quit
-                print("no")
-                break
-            default:
-                break
+            if(!UserDefaults.standard.bool(forKey:"hideBCVAlert")) {
+                let bcvAlert = NSAlert()
+                bcvAlert.messageText = "Bartender Compatibility Mode"
+                bcvAlert.informativeText = "You've just enabled Bartender Compatibility Mode.\n\nThis lets you use Menu Bar Splitter with Bartender, an amazing menu bar organization app.\n\nWould you like to learn how to use Bartender Compatibility Mode?"
+                bcvAlert.showsSuppressionButton = true
+                bcvAlert.addButton(withTitle: "Yes")
+                bcvAlert.addButton(withTitle: "No")
+                let res = bcvAlert.runModal()
+                switch(res.rawValue) {
+                case 1000:
+                    //yes
+                    NSWorkspace.shared.open(URL(string: "https://github.com/jwhamilton99/menu-bar-splitter/blob/master/bcvhowto.md")!)
+                    break
+                default:
+                    break
+                }
+                if(bcvAlert.suppressionButton!.state.rawValue == 1) {
+                    UserDefaults.standard.set(true, forKey:"hideBCVAlert")
+                }
             }
         }
         
@@ -229,6 +231,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func openWebsite(_ sender: Any) {
         NSWorkspace.shared.open(URL(string: "https://www.jwhamilton.co")!)
+    }
+    
+    @IBAction func openSource(_ sender: Any) {
+        NSWorkspace.shared.open(URL(string: "https://github.com/jwhamilton99/menu-bar-splitter")!)
     }
 }
 
