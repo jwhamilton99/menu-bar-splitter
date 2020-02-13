@@ -18,20 +18,4 @@ Made with love by [Justin Hamilton](https://www.jwhamilton.co).
 
 ![Screenshot 4](/img/sc4.png)
 
-**Note**: Version v1.1 will be released on the Mac App Store soon. The latest release hosted here, v1.0.1, is an old version and is different from the source code. I'll update the readme with a Mac App Store link when it's available.
-
-## v1.1 Changelog
-
-New:
-
-* Bundled the main app and BCV into a single app
-* Added a helper app to launch at login (if enabled)
-* Added "Open At Login" and "Bartender Compatibility" menu options
-* Added a checkmark next to the currently selected icon in the menu
-* Added link to source code in About window
-* Added a dialog explaining BCV when enabling
-
-Changed:
-
-* Removed "Open At Login" dialog, since adding the app to the Login Items is no longer required
-* Refined removing splitters
+Download the app [here](https://github.com/jwhamilton99/menu-bar-splitter/releases). (Requires macOS 10.15 Catalina or later)
