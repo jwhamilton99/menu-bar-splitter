@@ -16,7 +16,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var itemArray: [SplitterItem] = []
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
         if(UserDefaults.standard.integer(forKey:"numItems") == 0) {
             self.addItem()
         } else {
