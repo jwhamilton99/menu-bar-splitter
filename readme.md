@@ -8,15 +8,17 @@
 
 A simple macOS app to help keep your menu bar organized by adding dividers that you can move between icons. You can add as many dividers as you need, rearrange them as you please (CMD+Click+Drag), and choose between 4 different icons for each divider.
 
-Download the app [here](https://github.com/jwhamilton99/menu-bar-splitter/releases). (Requires macOS 10.15 Catalina or later)
+Download the app [here](https://github.com/jwhamilton99/menu-bar-splitter/releases/tag/2.0). (Requires macOS 10.15 Catalina or later)
+
+![Screenshot 3](/img/sc3.png)
 
 ![Screenshot 1](/img/sc1.png)
 
 ![Screenshot 2](/img/sc2.png)
 
-![Screenshot 3](/img/sc3.png)
-
 ![Screenshot 4](/img/sc4.png)
+
+![Screenshot 5](/img/sc4.png)
 
 Made with love by [Justin Hamilton](https://www.jwhamilton.co).
 

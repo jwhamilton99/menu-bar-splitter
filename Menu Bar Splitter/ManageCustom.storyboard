@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="bU7-R8-ocO">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Manage Custom View Controller-->
+        <scene sceneID="PEd-7d-5j0">
+            <objects>
+                <viewController id="bU7-R8-ocO" customClass="ManageCustomViewController" customModule="Menu_Bar_Splitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="tOy-S4-hL0">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRa-u4-lZa">
+                                <rect key="frame" x="0.0" y="40" width="450" height="260"/>
+                                <clipView key="contentView" id="Xqh-r2-3b0">
+                                    <rect key="frame" x="1" y="1" width="448" height="258"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="8O2-Ns-Jty">
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="258"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="lfn-ni-q9l">
+                                                <size key="itemSize" width="50" height="50"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Ly4-3I-UNq">
+                                    <rect key="frame" x="-100" y="-100" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="S08-HA-adE">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5SJ-8G-g4R">
+                                <rect key="frame" x="359" y="3" width="88" height="32"/>
+                                <buttonCell key="cell" type="push" title="Add Icon" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ssu-0P-PNb">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addIcon:" target="bU7-R8-ocO" id="ChI-LH-UZC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="gRa-u4-lZa" firstAttribute="top" secondItem="tOy-S4-hL0" secondAttribute="top" id="BjC-Km-qgZ"/>
+                            <constraint firstAttribute="trailing" secondItem="5SJ-8G-g4R" secondAttribute="trailing" constant="10" id="ENm-jV-WDI"/>
+                            <constraint firstItem="gRa-u4-lZa" firstAttribute="leading" secondItem="tOy-S4-hL0" secondAttribute="leading" id="YrT-CS-o0e"/>
+                            <constraint firstAttribute="bottom" secondItem="5SJ-8G-g4R" secondAttribute="bottom" constant="10" id="hPZ-mA-8Q1"/>
+                            <constraint firstAttribute="trailing" secondItem="gRa-u4-lZa" secondAttribute="trailing" id="o0s-oS-06s"/>
+                            <constraint firstItem="5SJ-8G-g4R" firstAttribute="top" secondItem="gRa-u4-lZa" secondAttribute="bottom" constant="10" id="qwe-Qt-6Tk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="8O2-Ns-Jty" id="VVN-wS-ddh"/>
+                    </connections>
+                </viewController>
+                <customObject id="9uD-mB-xHs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="101"/>
+        </scene>
+    </scenes>
+</document>

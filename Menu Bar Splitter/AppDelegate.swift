@@ -8,60 +8,102 @@
 
 import Cocoa
 import ServiceManagement
+import SwiftUI
+
+class ManageWindow: NSWindow {
+    var appDelegate: AppDelegate!
+    
+    override func close() {
+        self.appDelegate.refreshAllItems()
+        self.orderOut(NSApp)
+    }
+}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
     var itemArray: [SplitterItem] = []
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        if(UserDefaults.standard.object(forKey: "numItems") == nil) {
+            UserDefaults.standard.set(0, forKey: "numItems")
+        }
+        
         if(UserDefaults.standard.integer(forKey:"numItems") == 0) {
             self.addItem()
         } else {
-            let iconStr = UserDefaults.standard.string(forKey:"iconStr")!
-            let iconStrArr = Array(iconStr)
-            for i in 0...UserDefaults.standard.integer(forKey:"numItems")-1 {
-                self.addItem()
-                switch(iconStrArr[i]) {
-                case "0":
-                    itemArray.last?.setBlankIcon()
-                    break
-                case "1":
-                    itemArray.last?.setLineIcon()
-                    break
-                case "2":
-                    itemArray.last?.setDotIcon()
-                    break
-                case "3":
-                    itemArray.last?.setThinBlankIcon()
-                    break
-                default:
-                    break
+            if let itemsStr = UserDefaults.standard.object(forKey: "itemsStr") as? String {
+                let itemsArr = itemsStr.split(separator: ";")
+                for item in itemsArr {
+                    let splStr = item.split(separator: ",")
+                    if(splStr.count == 4) {
+                        let newSplitter = SplitterItem(index: self.itemArray.count, id: String(splStr[0]))
+                        newSplitter.id = String(splStr[0])
+                        if(Int(splStr[1]) != -1) {
+                            switch(Int(splStr[1])) {
+                            case 0:
+                                newSplitter.setBlankIcon()
+                                break
+                            case 2:
+                                newSplitter.setDotIcon()
+                                break
+                            case 3:
+                                newSplitter.setThinBlankIcon()
+                                break
+                            default:
+                                newSplitter.setLineIcon()
+                                break
+                            }
+                        } else {
+                            newSplitter.forceSetCustomImage(id: String(splStr[2]))
+                            if(Int(splStr[3]) == 1) {
+                                newSplitter.setTemplate(true)
+                            } else {
+                                newSplitter.setTemplate(false)
+                            }
+                        }
+                        self.itemArray.append(newSplitter)
+                    } else {
+                        let newSplitter = SplitterItem(index: self.itemArray.count)
+                        self.itemArray.append(newSplitter)
+                    }
+                }
+                self.savePrefs()
+            } else {
+                if let iconStr = UserDefaults.standard.object(forKey:"iconStr") as? String {
+                    let iconStrArr = Array(iconStr)
+                    for i in 0...UserDefaults.standard.integer(forKey:"numItems")-1 {
+                        self.addItem()
+                        switch(iconStrArr[i]) {
+                        case "0":
+                            itemArray.last?.setBlankIcon()
+                            break
+                        case "1":
+                            itemArray.last?.setLineIcon()
+                            break
+                        case "2":
+                            itemArray.last?.setDotIcon()
+                            break
+                        case "3":
+                            itemArray.last?.setThinBlankIcon()
+                            break
+                        default:
+                            break
+                        }
+                    }
+                    UserDefaults.standard.set(nil, forKey: "iconStr")
+                    self.savePrefs()
                 }
             }
         }
         
         refreshAllItems()
-        
-        if(UserDefaults.standard.bool(forKey: "bcvEnabled")) {
-            launchBCV()
-        }
-    }
-    
-    func checkIfBCVRunning() -> Bool {
-        let bcvRunning = !(NSWorkspace.shared.runningApplications).filter { $0.bundleIdentifier == "justinhamilton.Menu-Bar-Splitter-BCV"}.isEmpty
-        
-        return bcvRunning
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-        if(UserDefaults.standard.bool(forKey: "bcvEnabled")) {
-            if(checkIfBCVRunning()) {
-                self.closeBCV()
-            }
-        }
+        self.savePrefs()
     }
 
     @objc func getIndex(sender: Any)->Int {
@@ -76,7 +118,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func showAbout() {
+        NSApplication.shared.activate(ignoringOtherApps: true)
         window.makeKeyAndOrderFront(NSWorkspace.shared)
+    }
+    
+    @objc func showManage() {
+        let w = ManageWindow(contentRect: NSRect(x: 0, y: 0, width: 400, height: 500), styleMask: [.closable, .titled], backing: .buffered, defer: false)
+        guard let viewController = NSStoryboard(name: "ManageCustom", bundle: .main).instantiateInitialController() as? ManageCustomViewController else { return }
+        viewController.appDelegate = self
+        w.contentViewController = viewController
+        viewController.window = w
+        
+        w.appDelegate = self
+        w.title = "Manage Icons"
+        NSApplication.shared.activate(ignoringOtherApps: true)
+        w.makeKeyAndOrderFront(NSWorkspace.shared)
     }
     
     @objc func addItem() {
@@ -126,36 +182,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func savePrefs() {
         UserDefaults.standard.set(itemArray.count, forKey: "numItems")
-        var icoStr = ""
-        itemArray.forEach({(i) in
-            var iconInd = 0
-            switch(i.statusItem.button?.image?.name()!) {
-            case "blankIcon":
-                iconInd = 0
-                break
-            case "lineIcon":
-                iconInd = 1
-                break
-            case "dotIcon":
-                iconInd = 2
-                break
-            case "thinBlankIcon":
-                iconInd = 3
-                break
-            default:
-                break
-            }
-            icoStr = "\(icoStr)\(iconInd)"
-        })
-        UserDefaults.standard.set(icoStr, forKey: "iconStr")
+        
+        var itemsStr = ""
+        
+        for item in self.itemArray {
+            var itemStr = item.id
+            itemStr.append(",\(item.builtinIconKey)")
+            itemStr.append(",\((item.builtinIconKey == -1) ? item.customIconID : "-1")")
+            itemStr.append(",\((item.builtinIconKey == -1) ? ((item.isTemplate) ? "1" : "0") : "0")")
+            itemsStr.append(itemStr)
+            itemsStr.append(";")
+        }
+        
+        UserDefaults.standard.set(itemsStr, forKey: "itemsStr")
         refreshAllItems()
     }
     
     @objc func quitSelected() {
-        self.savePrefs()
-        if(UserDefaults.standard.bool(forKey: "bcvEnabled")) {
-            self.closeBCV()
-        }
         NSApplication.shared.terminate(self)
     }
     
@@ -179,53 +222,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func refreshAllItems() {
         itemArray.forEach({(i) in
-            i.refreshMenu()
+            i.refreshItem()
         })
     }
     
-    func closeBCV() {
-        DistributedNotificationCenter.default().post(name: NSNotification.Name("justinhamilton.Menu-Bar-Splitter.quitBCVNotification"), object: nil)
-    }
-    
-    func launchBCV() {
-        let bcvURL = (Bundle.main.bundleURL.appendingPathComponent("Contents", isDirectory: true).appendingPathComponent("Library", isDirectory: true).appendingPathComponent("BCV", isDirectory: true).appendingPathComponent("Menu Bar Splitter (Bartender Compatibility Version).app", isDirectory: false))
-        do {
-            try NSWorkspace.shared.launchApplication(at: bcvURL, options: .default, configuration: [:])
-        } catch {
-            print(error.localizedDescription)
+    func addCustomImage() -> String? {
+        if let uuid = selectCustomItem() {
+            return uuid
         }
-    }
-    
-    @objc func toggleBCV() {
-        if(UserDefaults.standard.bool(forKey: "bcvEnabled")) {
-            UserDefaults.standard.set(false, forKey: "bcvEnabled")
-            closeBCV()
-        } else {
-            UserDefaults.standard.set(true, forKey: "bcvEnabled")
-            launchBCV()
-            if(!UserDefaults.standard.bool(forKey:"hideBCVAlert")) {
-                let bcvAlert = NSAlert()
-                bcvAlert.messageText = "Bartender Compatibility Mode"
-                bcvAlert.informativeText = "You've just enabled Bartender Compatibility Mode.\n\nThis lets you use Menu Bar Splitter with Bartender, an amazing menu bar organization app.\n\nWould you like to learn how to use Bartender Compatibility Mode?"
-                bcvAlert.showsSuppressionButton = true
-                bcvAlert.addButton(withTitle: "Yes")
-                bcvAlert.addButton(withTitle: "No")
-                let res = bcvAlert.runModal()
-                switch(res.rawValue) {
-                case 1000:
-                    //yes
-                    NSWorkspace.shared.open(URL(string: "https://github.com/jwhamilton99/menu-bar-splitter/blob/master/bcvhowto.md")!)
-                    break
-                default:
-                    break
-                }
-                if(bcvAlert.suppressionButton!.state.rawValue == 1) {
-                    UserDefaults.standard.set(true, forKey:"hideBCVAlert")
-                }
-            }
-        }
-        
-        refreshAllItems()
+        return nil
     }
     
     @IBAction func openWebsite(_ sender: Any) {

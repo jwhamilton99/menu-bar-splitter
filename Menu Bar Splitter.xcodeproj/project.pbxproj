@@ -11,11 +11,12 @@
 		430D6FC12395C13600B158F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D6FC02395C13600B158F2 /* Assets.xcassets */; };
 		430D6FC42395C13600B158F2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430D6FC22395C13600B158F2 /* MainMenu.xib */; };
 		430D6FCF2395C19600B158F2 /* SplitterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430D6FCE2395C19600B158F2 /* SplitterItem.swift */; };
-		43633158239B9442008970B0 /* BCVAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43633157239B9442008970B0 /* BCVAppDelegate.swift */; };
-		4363315A239B9444008970B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43633159239B9444008970B0 /* Assets.xcassets */; };
-		4363315D239B9444008970B0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4363315B239B9444008970B0 /* MainMenu.xib */; };
-		43633166239B94D1008970B0 /* SplitterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43633165239B94D1008970B0 /* SplitterItem.swift */; };
-		43D1816C23F24BAA002D536E /* Menu Bar Splitter (Bartender Compatibility Version).app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 43633155239B9442008970B0 /* Menu Bar Splitter (Bartender Compatibility Version).app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		436D574A25F29BA00009D420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D6FC02395C13600B158F2 /* Assets.xcassets */; };
+		436D574E25F2A0EB0009D420 /* CustomItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436D574D25F2A0EB0009D420 /* CustomItems.swift */; };
+		4396239E2604CF0400D0B9A5 /* ManageCustom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4396239D2604CF0400D0B9A5 /* ManageCustom.storyboard */; };
+		439623A02604CFEF00D0B9A5 /* ManageCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4396239F2604CFEF00D0B9A5 /* ManageCustomViewController.swift */; };
+		439623A32604D06900D0B9A5 /* ManageCustomCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439623A12604D06900D0B9A5 /* ManageCustomCollectionItem.swift */; };
+		439623A42604D06900D0B9A5 /* ManageCustomCollectionItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 439623A22604D06900D0B9A5 /* ManageCustomCollectionItem.xib */; };
 		43FBAD8323F2426B005E3AE9 /* AutoLaunchAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FBAD8223F2426B005E3AE9 /* AutoLaunchAppDelegate.swift */; };
 		43FBAD8723F2426E005E3AE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FBAD8623F2426E005E3AE9 /* Assets.xcassets */; };
 		43FBAD8A23F2426E005E3AE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FBAD8823F2426E005E3AE9 /* Main.storyboard */; };
@@ -30,13 +31,12 @@
 			dstPath = Contents/Library/BCV;
 			dstSubfolderSpec = 1;
 			files = (
-				43D1816C23F24BAA002D536E /* Menu Bar Splitter (Bartender Compatibility Version).app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		43FBAD9323F242D1005E3AE9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
@@ -54,13 +54,11 @@
 		430D6FC52395C13600B158F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		430D6FC62395C13600B158F2 /* Menu_Bar_Splitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Menu_Bar_Splitter.entitlements; sourceTree = "<group>"; };
 		430D6FCE2395C19600B158F2 /* SplitterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitterItem.swift; sourceTree = "<group>"; };
-		43633155239B9442008970B0 /* Menu Bar Splitter (Bartender Compatibility Version).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Menu Bar Splitter (Bartender Compatibility Version).app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		43633157239B9442008970B0 /* BCVAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCVAppDelegate.swift; sourceTree = "<group>"; };
-		43633159239B9444008970B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4363315C239B9444008970B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		4363315E239B9444008970B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4363315F239B9444008970B0 /* Menu_Bar_Splitter__Bartender_Compatibility_Version_.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Menu_Bar_Splitter__Bartender_Compatibility_Version_.entitlements; sourceTree = "<group>"; };
-		43633165239B94D1008970B0 /* SplitterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitterItem.swift; sourceTree = "<group>"; };
+		436D574D25F2A0EB0009D420 /* CustomItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomItems.swift; sourceTree = "<group>"; };
+		4396239D2604CF0400D0B9A5 /* ManageCustom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManageCustom.storyboard; sourceTree = "<group>"; };
+		4396239F2604CFEF00D0B9A5 /* ManageCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCustomViewController.swift; sourceTree = "<group>"; };
+		439623A12604D06900D0B9A5 /* ManageCustomCollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCustomCollectionItem.swift; sourceTree = "<group>"; };
+		439623A22604D06900D0B9A5 /* ManageCustomCollectionItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageCustomCollectionItem.xib; sourceTree = "<group>"; };
 		43FBAD8023F2426B005E3AE9 /* Menu Bar Splitter AutoLaunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Menu Bar Splitter AutoLaunch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FBAD8223F2426B005E3AE9 /* AutoLaunchAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLaunchAppDelegate.swift; sourceTree = "<group>"; };
 		43FBAD8623F2426E005E3AE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,13 +77,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43633152239B9442008970B0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		43FBAD7D23F2426B005E3AE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				430D6FBD2395C13500B158F2 /* Menu Bar Splitter */,
-				43633156239B9442008970B0 /* Menu Bar Splitter (Bartender Compatibility Version) */,
 				43FBAD8123F2426B005E3AE9 /* Menu Bar Splitter AutoLaunch */,
 				430D6FBC2395C13500B158F2 /* Products */,
 				43FBAD9023F2428A005E3AE9 /* Frameworks */,
@@ -111,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				430D6FBB2395C13500B158F2 /* Menu Bar Splitter.app */,
-				43633155239B9442008970B0 /* Menu Bar Splitter (Bartender Compatibility Version).app */,
 				43FBAD8023F2426B005E3AE9 /* Menu Bar Splitter AutoLaunch.app */,
 			);
 			name = Products;
@@ -122,25 +111,17 @@
 			children = (
 				430D6FCE2395C19600B158F2 /* SplitterItem.swift */,
 				4305E6A02395C23300D16CE6 /* AppDelegate.swift */,
+				436D574D25F2A0EB0009D420 /* CustomItems.swift */,
 				430D6FC02395C13600B158F2 /* Assets.xcassets */,
 				430D6FC22395C13600B158F2 /* MainMenu.xib */,
 				430D6FC52395C13600B158F2 /* Info.plist */,
 				430D6FC62395C13600B158F2 /* Menu_Bar_Splitter.entitlements */,
+				4396239D2604CF0400D0B9A5 /* ManageCustom.storyboard */,
+				439623A12604D06900D0B9A5 /* ManageCustomCollectionItem.swift */,
+				439623A22604D06900D0B9A5 /* ManageCustomCollectionItem.xib */,
+				4396239F2604CFEF00D0B9A5 /* ManageCustomViewController.swift */,
 			);
 			path = "Menu Bar Splitter";
-			sourceTree = "<group>";
-		};
-		43633156239B9442008970B0 /* Menu Bar Splitter (Bartender Compatibility Version) */ = {
-			isa = PBXGroup;
-			children = (
-				43633165239B94D1008970B0 /* SplitterItem.swift */,
-				43633157239B9442008970B0 /* BCVAppDelegate.swift */,
-				43633159239B9444008970B0 /* Assets.xcassets */,
-				4363315B239B9444008970B0 /* MainMenu.xib */,
-				4363315E239B9444008970B0 /* Info.plist */,
-				4363315F239B9444008970B0 /* Menu_Bar_Splitter__Bartender_Compatibility_Version_.entitlements */,
-			);
-			path = "Menu Bar Splitter (Bartender Compatibility Version)";
 			sourceTree = "<group>";
 		};
 		43FBAD8123F2426B005E3AE9 /* Menu Bar Splitter AutoLaunch */ = {
@@ -185,23 +166,6 @@
 			productReference = 430D6FBB2395C13500B158F2 /* Menu Bar Splitter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		43633154239B9442008970B0 /* Menu Bar Splitter (Bartender Compatibility Version) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 43633162239B9444008970B0 /* Build configuration list for PBXNativeTarget "Menu Bar Splitter (Bartender Compatibility Version)" */;
-			buildPhases = (
-				43633151239B9442008970B0 /* Sources */,
-				43633152239B9442008970B0 /* Frameworks */,
-				43633153239B9442008970B0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Menu Bar Splitter (Bartender Compatibility Version)";
-			productName = "Menu Bar Splitter (Bartender Compatibility Version)";
-			productReference = 43633155239B9442008970B0 /* Menu Bar Splitter (Bartender Compatibility Version).app */;
-			productType = "com.apple.product-type.application";
-		};
 		43FBAD7F23F2426B005E3AE9 /* Menu Bar Splitter AutoLaunch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43FBAD8D23F2426E005E3AE9 /* Build configuration list for PBXNativeTarget "Menu Bar Splitter AutoLaunch" */;
@@ -226,13 +190,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Justin Hamilton";
 				TargetAttributes = {
 					430D6FBA2395C13500B158F2 = {
-						CreatedOnToolsVersion = 11.2.1;
-					};
-					43633154239B9442008970B0 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
 					43FBAD7F23F2426B005E3AE9 = {
@@ -254,7 +215,6 @@
 			projectRoot = "";
 			targets = (
 				430D6FBA2395C13500B158F2 /* Menu Bar Splitter */,
-				43633154239B9442008970B0 /* Menu Bar Splitter (Bartender Compatibility Version) */,
 				43FBAD7F23F2426B005E3AE9 /* Menu Bar Splitter AutoLaunch */,
 			);
 		};
@@ -266,16 +226,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				430D6FC12395C13600B158F2 /* Assets.xcassets in Resources */,
+				4396239E2604CF0400D0B9A5 /* ManageCustom.storyboard in Resources */,
+				439623A42604D06900D0B9A5 /* ManageCustomCollectionItem.xib in Resources */,
 				430D6FC42395C13600B158F2 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43633153239B9442008970B0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4363315A239B9444008970B0 /* Assets.xcassets in Resources */,
-				4363315D239B9444008970B0 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43FBAD8723F2426E005E3AE9 /* Assets.xcassets in Resources */,
+				436D574A25F29BA00009D420 /* Assets.xcassets in Resources */,
 				43FBAD8A23F2426E005E3AE9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,16 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4305E6A12395C23300D16CE6 /* AppDelegate.swift in Sources */,
+				439623A02604CFEF00D0B9A5 /* ManageCustomViewController.swift in Sources */,
 				430D6FCF2395C19600B158F2 /* SplitterItem.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43633151239B9442008970B0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				43633158239B9442008970B0 /* BCVAppDelegate.swift in Sources */,
-				43633166239B94D1008970B0 /* SplitterItem.swift in Sources */,
+				439623A32604D06900D0B9A5 /* ManageCustomCollectionItem.swift in Sources */,
+				436D574E25F2A0EB0009D420 /* CustomItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,14 +272,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				430D6FC32395C13600B158F2 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		4363315B239B9444008970B0 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4363315C239B9444008970B0 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -373,6 +313,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -433,6 +374,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -465,10 +407,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Menu Bar Splitter/Menu_Bar_Splitter.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2W9EC9X76L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Menu Bar Splitter/Info.plist";
@@ -477,7 +419,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "justinhamilton.Menu-Bar-Splitter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
@@ -490,10 +432,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Menu Bar Splitter/Menu_Bar_Splitter.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2W9EC9X76L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Menu Bar Splitter/Info.plist";
@@ -502,58 +444,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "justinhamilton.Menu-Bar-Splitter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		43633160239B9444008970B0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Menu Bar Splitter (Bartender Compatibility Version)/Menu_Bar_Splitter__Bartender_Compatibility_Version_.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 2W9EC9X76L;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = "Menu Bar Splitter (Bartender Compatibility Version)/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "justinhamilton.Menu-Bar-Splitter-BCV";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		43633161239B9444008970B0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Menu Bar Splitter (Bartender Compatibility Version)/Menu_Bar_Splitter__Bartender_Compatibility_Version_.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 2W9EC9X76L;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = "Menu Bar Splitter (Bartender Compatibility Version)/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "justinhamilton.Menu-Bar-Splitter-BCV";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -563,9 +457,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Menu Bar Splitter AutoLaunch/Menu_Bar_Splitter_AutoLaunch.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2W9EC9X76L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Menu Bar Splitter AutoLaunch/Info.plist";
@@ -574,7 +469,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "justinhamilton.Menu-Bar-Splitter-AutoLaunch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -587,9 +482,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Menu Bar Splitter AutoLaunch/Menu_Bar_Splitter_AutoLaunch.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2W9EC9X76L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Menu Bar Splitter AutoLaunch/Info.plist";
@@ -598,7 +494,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "justinhamilton.Menu-Bar-Splitter-AutoLaunch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -623,15 +519,6 @@
 			buildConfigurations = (
 				430D6FCA2395C13600B158F2 /* Debug */,
 				430D6FCB2395C13600B158F2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		43633162239B9444008970B0 /* Build configuration list for PBXNativeTarget "Menu Bar Splitter (Bartender Compatibility Version)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				43633160239B9444008970B0 /* Debug */,
-				43633161239B9444008970B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

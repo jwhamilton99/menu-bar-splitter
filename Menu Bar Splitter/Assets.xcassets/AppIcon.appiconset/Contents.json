@@ -1,63 +1,68 @@
 {
   "images" : [
     {
+      "filename" : "mbs-bigsur-16.png",
       "idiom" : "mac",
-      "size" : "16x16",
-      "scale" : "1x"
+      "scale" : "1x",
+      "size" : "16x16"
     },
     {
-      "size" : "16x16",
+      "filename" : "mbs-bigsur-32.png",
       "idiom" : "mac",
-      "filename" : "AppIcon-16pt.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "size" : "16x16"
     },
     {
+      "filename" : "mbs-bigsur-33.png",
       "idiom" : "mac",
-      "size" : "32x32",
-      "scale" : "1x"
+      "scale" : "1x",
+      "size" : "32x32"
     },
     {
-      "size" : "32x32",
+      "filename" : "mbs-bigsur-64.png",
       "idiom" : "mac",
-      "filename" : "AppIcon-32pt.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "size" : "32x32"
     },
     {
+      "filename" : "mbs-bigsur-128.png",
       "idiom" : "mac",
-      "size" : "128x128",
-      "scale" : "1x"
+      "scale" : "1x",
+      "size" : "128x128"
     },
     {
-      "size" : "128x128",
+      "filename" : "mbs-bigsur-256.png",
       "idiom" : "mac",
-      "filename" : "AppIcon-128pt.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "size" : "128x128"
     },
     {
+      "filename" : "mbs-bigsur-257.png",
       "idiom" : "mac",
-      "size" : "256x256",
-      "scale" : "1x"
+      "scale" : "1x",
+      "size" : "256x256"
     },
     {
-      "size" : "256x256",
+      "filename" : "mbs-bigsur-512.png",
       "idiom" : "mac",
-      "filename" : "AppIcon-256pt.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "size" : "256x256"
     },
     {
+      "filename" : "mbs-bigsur-513.png",
       "idiom" : "mac",
-      "size" : "512x512",
-      "scale" : "1x"
+      "scale" : "1x",
+      "size" : "512x512"
     },
     {
-      "size" : "512x512",
+      "filename" : "mbs-bigsur.png",
       "idiom" : "mac",
-      "filename" : "AppIcon-512pt.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "size" : "512x512"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }
