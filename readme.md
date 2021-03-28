@@ -1,14 +1,14 @@
 # Menu Bar Splitter
 
-*"Gilt es auszuprobieren (It is important to try it out)" - [ifun.de](https://www.ifun.de/menu-bar-splitter-sorgt-fuer-mehr-uebersicht-in-der-menueleiste-147440/)*
-
-*"It's easy to recommend if you're looking for a no-nonsense way to organize your icons" - [Softpedia](https://mac.softpedia.com/get/Utilities/Menu-Bar-Splitter.shtml)*
-
-*Featured on [Softpedia](https://mac.softpedia.com/get/Utilities/Menu-Bar-Splitter.shtml), [ifun.de](https://www.ifun.de/menu-bar-splitter-sorgt-fuer-mehr-uebersicht-in-der-menueleiste-147440/), [AppsForMyPC](https://www.appsformypc.com/2020/01/menu-bar-splitter-for-mac/), and [AddictiveTips](https://www.addictivetips.com/mac-os/add-dividers-to-the-menu-bar-on-macos/).*
-
 A simple macOS app to help keep your menu bar organized by adding dividers that you can move between icons. You can add as many dividers as you need, rearrange them as you please (CMD+Click+Drag), and choose between 4 built-in icons or any image on your Mac for each divider.
 
-**Introducing Menu Bar Splitter v2.0. Download [here](https://github.com/jwhamilton99/menu-bar-splitter/releases/tag/2.0). (Requires macOS 10.15 Catalina or later)**
+*"Gilt es auszuprobieren (It is important to try it out)" - [ifun.de](https://www.ifun.de/menu-bar-splitter-sorgt-fuer-mehr-uebersicht-in-der-menueleiste-147440/)*
+
+*"It's easy to recommend if you're looking for a no-nonsense way to organize your icons" - [AppsForMyPC](https://www.appsformypc.com/2020/01/menu-bar-splitter-for-mac/)*
+
+*Featured on [AddictiveTips](https://www.addictivetips.com/mac-os/add-dividers-to-the-menu-bar-on-macos/), [ifun.de](https://www.ifun.de/menu-bar-splitter-sorgt-fuer-mehr-uebersicht-in-der-menueleiste-147440/), [AppsForMyPC](https://www.appsformypc.com/2020/01/menu-bar-splitter-for-mac/), and [GroovyPost](https://www.groovypost.com/howto/use-menu-bar-dividers-on-your-mac-and-get-better-organized/).*
+
+**Introducing Menu Bar Splitter v2.0. Download the app and read the release notes [here](https://github.com/jwhamilton99/menu-bar-splitter/releases/tag/2.0). (Requires macOS 10.15 Catalina or later)**
 
 ![Screenshot 1](/img/sc3.png)
 
