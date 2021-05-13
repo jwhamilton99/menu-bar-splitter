@@ -10,6 +10,8 @@ A simple macOS app to help keep your menu bar organized by adding dividers that 
 
 **Introducing Menu Bar Splitter v2.0. Download the app and read the release notes [here](https://github.com/jwhamilton99/menu-bar-splitter/releases/tag/2.0). (Requires macOS 10.15 Catalina or later)**
 
+*Or you can install via Homebrew: `brew install menu-bar-splitter` (Thanks to [Jon Schneider](https://github.com/Jon-Schneider) and [jaklan](https://github.com/jaklan) for making this possible!)*
+
 ![Screenshot 1](/img/sc3.png)
 
 ![Screenshot 2](/img/sc1.png)
