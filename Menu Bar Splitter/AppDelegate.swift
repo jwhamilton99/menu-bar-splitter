@@ -39,6 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     let splStr = item.split(separator: ",")
                     if(splStr.count == 4) {
                         let newSplitter = SplitterItem(index: self.itemArray.count, id: String(splStr[0]))
+                        newSplitter.updatePrefs = false
                         newSplitter.id = String(splStr[0])
                         if(Int(splStr[1]) != -1) {
                             switch(Int(splStr[1])) {
@@ -63,6 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                 newSplitter.setTemplate(false)
                             }
                         }
+                        newSplitter.updatePrefs = true
                         self.itemArray.append(newSplitter)
                     } else {
                         let newSplitter = SplitterItem(index: self.itemArray.count)
@@ -74,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 if let iconStr = UserDefaults.standard.object(forKey:"iconStr") as? String {
                     let iconStrArr = Array(iconStr)
                     for i in 0...UserDefaults.standard.integer(forKey:"numItems")-1 {
-                        self.addItem()
+                        self.addItem(false)
                         switch(iconStrArr[i]) {
                         case "0":
                             itemArray.last?.setBlankIcon()
@@ -135,9 +137,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         w.makeKeyAndOrderFront(NSWorkspace.shared)
     }
     
-    @objc func addItem() {
+    @objc func addItem(_ updatePrefs: Bool = true) {
         itemArray.append(SplitterItem(index: itemArray.count))
-        self.savePrefs()
+        if(updatePrefs) {
+            self.savePrefs()
+        }
     }
     
     @objc func removeItem(index: Int) {
@@ -178,6 +182,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             i.statusIndex = newIndex
             newIndex+=1
         })
+        self.savePrefs()
     }
     
     func savePrefs() {
@@ -199,6 +204,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func quitSelected() {
+        self.savePrefs()
         NSApplication.shared.terminate(self)
     }
     

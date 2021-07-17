@@ -731,7 +731,7 @@
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n2i-BQ-NFL">
                         <rect key="frame" x="8" y="10" width="234" height="14"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="v2.0" id="lWv-c5-dYa">
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="v2.0.1" id="lWv-c5-dYa">
                             <font key="font" metaFont="menu" size="11"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

@@ -31,6 +31,8 @@ class SplitterItem: NSStatusItem, NSMenuDelegate {
     var customIconID = ""
     var isTemplate = false
     
+    var updatePrefs: Bool = true
+    
     @objc func addCustomFromItem() {
         if let uuid = self.appDelegate.addCustomImage(), let image = getCustomItem(for: uuid) {
             self.builtinIconKey = -1
@@ -73,7 +75,7 @@ class SplitterItem: NSStatusItem, NSMenuDelegate {
             button.image = image
             self.refreshItem()
             
-            self.appDelegate.savePrefs()
+            if(self.updatePrefs) { self.appDelegate.savePrefs() }
         }
     }
     
@@ -82,7 +84,7 @@ class SplitterItem: NSStatusItem, NSMenuDelegate {
         image.isTemplate = !image.isTemplate
         self.isTemplate = image.isTemplate
         self.refreshItem()
-        self.appDelegate.savePrefs()
+        if(self.updatePrefs) { self.appDelegate.savePrefs() }
     }
     
     func setTemplate(_ isTemplate: Bool) {
@@ -90,7 +92,7 @@ class SplitterItem: NSStatusItem, NSMenuDelegate {
         image.isTemplate = isTemplate
         self.isTemplate = image.isTemplate
         self.refreshItem()
-        self.appDelegate.savePrefs()
+        if(self.updatePrefs) { self.appDelegate.savePrefs() }
     }
     
     func forceSetCustomImage(id: String) {
@@ -269,7 +271,7 @@ class SplitterItem: NSStatusItem, NSMenuDelegate {
         statusItem.button?.image = NSImage(named: "blankIcon")
         self.customIconID = ""
         self.builtinIconKey = 0
-        self.appDelegate.savePrefs()
+        if(self.updatePrefs) { self.appDelegate.savePrefs() }
         self.appDelegate.refreshAllItems()
     }
     
